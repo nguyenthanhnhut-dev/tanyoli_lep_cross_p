@@ -8,16 +8,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
-  /* Cập nhật hệ màu sắc tươi mới, dịu nhẹ */
   :root {
-    --ink: #2c3e50;          /* Màu chữ chính: Xanh đen dịu */
-    --paper: #f8fafc;        /* Màu nền tổng thể: Trắng ánh xanh lơ rất nhẹ */
-    --lotus: #4a90e2;        /* Màu điểm nhấn chính: Xanh lam tươi sáng */
-    --lotus-light: #7fb3d5;  /* Màu điểm nhấn phụ: Xanh lam nhạt */
-    --deep: #eef2f6;         /* Màu nền các khối box */
-    --mist: #7f8c8d;         /* Màu chữ phụ, mô tả */
-    --glow: rgba(74,144,226,0.08);
-    --border: rgba(44, 62, 80, 0.15); /* Viền xám nhạt */
+    --ink: #1e3a5f;          /* Xanh navy đậm — chữ chính sắc nét hơn */
+    --paper: #f4f8fc;        /* Nền trắng ánh xanh nhẹ, đồng điệu với bộ màu */
+    --lotus: #3a7bd5;        /* Xanh lam chủ đạo — đậm hơn, dễ đọc hơn */
+    --lotus-light: #6aaee8;  /* Xanh lam nhạt cho accent phụ */
+    --deep: #e8f0f9;         /* Nền box — cùng tông xanh nhạt */
+    --mist: #5a7a9e;         /* Thay gray trung tính → xanh-slate ấm, hoà sắc với bộ màu */
+    --mist-soft: #8aabcc;    /* Chữ phụ nhẹ hơn (dùng cho label nhỏ) */
+    --glow: rgba(58,123,213,0.08);
+    --border: rgba(30, 58, 95, 0.12);
   }
 
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -30,7 +30,6 @@
     overflow-x: hidden;
   }
 
-  /* Background texture cho nền sáng */
   body::before {
     content: '';
     position: fixed; inset: 0;
@@ -41,7 +40,6 @@
     pointer-events: none; z-index: 0;
   }
 
-  /* Mandala/Hoa văn mờ ở background */
   body::after {
     content: '';
     position: fixed;
@@ -99,10 +97,13 @@
   }
 
   .site-subtitle {
-    font-size: 14px;
+    font-size: 13.5px;
     color: var(--mist);
-    letter-spacing: 1px;
+    letter-spacing: 0.4px;
     font-weight: 400;
+    line-height: 1.7;
+    max-width: 520px;
+    margin: 0 auto;
   }
 
   /* === PROGRESS === */
@@ -143,6 +144,7 @@
     font-size: 13px;
     color: var(--mist);
     white-space: nowrap;
+    font-weight: 500;
   }
 
   /* === SECTIONS === */
@@ -186,6 +188,8 @@
     color: var(--mist);
     margin-bottom: 40px;
     font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.3px;
   }
 
   /* === QUESTIONS === */
@@ -257,7 +261,7 @@
   .option-letter {
     font-family: 'Cormorant Garamond', serif;
     font-size: 16px;
-    color: var(--mist);
+    color: var(--mist-soft);
     font-weight: 600;
     flex-shrink: 0;
     min-width: 18px;
@@ -362,12 +366,13 @@
 
   .intro-text {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(18px, 3vw, 24px);
+    font-size: clamp(18px, 3vw, 22px);
     font-weight: 400;
-    line-height: 1.8;
+    line-height: 1.9;
     color: var(--ink);
     margin-bottom: 40px;
     max-width: 600px;
+    opacity: 0.9;
   }
 
   .intro-pillars {
@@ -402,9 +407,9 @@
   .pillar-chip-desc {
     font-size: 10px;
     letter-spacing: 1.5px;
-    color: var(--mist);
+    color: var(--mist-soft);
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   /* === SURVEY & RESULTS=== */
@@ -437,6 +442,7 @@
   .results-subtitle {
     font-size: 14px;
     color: var(--mist);
+    letter-spacing: 0.3px;
   }
 
   .results-grid {
@@ -503,7 +509,7 @@
 
   .rc-desc {
     font-size: 12px;
-    color: var(--mist);
+    color: var(--mist-soft);
     margin-bottom: 12px;
     letter-spacing: 0.5px;
   }
@@ -531,10 +537,10 @@
     font-weight: 600;
   }
 
-  .level-1 { color: #e74c3c; } /* Đỏ nhạt -> Đỏ tươi */
-  .level-2 { color: #f39c12; } /* Vàng cam */
-  .level-3 { color: #3498db; } /* Xanh dương */
-  .level-4 { color: #2ecc71; } /* Xanh lá */
+  .level-1 { color: #e74c3c; }
+  .level-2 { color: #f39c12; }
+  .level-3 { color: #3498db; }
+  .level-4 { color: #2ecc71; }
 
   .total-score-wrap {
     border: 1px solid var(--border);
@@ -551,7 +557,7 @@
   .total-label {
     font-size: 11px;
     letter-spacing: 3px;
-    color: var(--mist);
+    color: var(--mist-soft);
     text-transform: uppercase;
     margin-bottom: 10px;
     font-weight: 600;
@@ -632,7 +638,7 @@
     font-size: 10px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--mist);
+    color: var(--mist-soft);
     font-weight: 600;
   }
 
@@ -659,7 +665,7 @@
     text-align: center;
     font-size: 11px;
     letter-spacing: 3px;
-    color: var(--mist);
+    color: var(--mist-soft);
     font-weight: 600;
     text-transform: uppercase;
     margin-bottom: 20px;
@@ -776,7 +782,6 @@
   }
   .info-alert.show { display: block; }
 
-  /* Alert for unanswered */
   .alert {
     display: none;
     background: rgba(231, 76, 60, 0.1);
@@ -1183,7 +1188,8 @@ function recordAnswer(key, val) {
 function updateProgress() {
   const total = sections.length * 2;
   const answered = Object.keys(answers).length;
-  const pct = (currentSection / sections.length) * 100;
+  // ✅ FIX 3: Progress now reaches 100% on the last section
+  const pct = ((currentSection + 1) / sections.length) * 100;
   document.getElementById('progress-fill').style.width = pct + '%';
   document.getElementById('progress-label').textContent = `Trụ ${currentSection+1} / ${sections.length}`;
   document.getElementById('progress-count').textContent = `${answered} / ${total}`;
@@ -1210,6 +1216,11 @@ function goToSection(idx) {
   });
 
   document.getElementById('btn-prev').style.visibility = currentSection === 0 ? 'hidden' : 'visible';
+
+  // ✅ FIX 2: Update button text when navigating back/forward
+  document.getElementById('btn-next').textContent =
+    currentSection === sections.length - 1 ? 'Xem Kết Quả →' : 'Tiếp Theo →';
+
   updateProgress();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -1233,9 +1244,6 @@ function nextSection() {
   if (currentSection < sections.length - 1) {
     document.getElementById(`dot-${currentSection}`).classList.add('done');
     goToSection(currentSection + 1);
-    if (currentSection === sections.length - 1) {
-      document.getElementById('btn-next').textContent = 'Xem Kết Quả →';
-    }
   } else {
     showResults();
   }
@@ -1257,7 +1265,6 @@ function backToIntro() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Hàm submit thông tin mới
 function submitInfo() {
   const code = document.getElementById('f-code').value.trim();
   const name = document.getElementById('f-name').value.trim();
@@ -1269,7 +1276,6 @@ function submitInfo() {
   }
   document.getElementById('info-alert').classList.remove('show');
   
-  // Lưu thông tin người dùng mới
   userInfo = { code, name, evaluatee };
   document.getElementById('info-screen').classList.remove('active');
   startSurvey();
@@ -1287,7 +1293,6 @@ function showResults() {
   resultsEl.classList.add('active');
   resultsEl.style.display = 'flex';
 
-  // Hiển thị Card thông tin người dùng đã cập nhật
   const infoCard = document.getElementById('user-info-card');
   infoCard.innerHTML = [
     { label: 'Mã khảo sát', value: userInfo.code },
@@ -1352,7 +1357,6 @@ function showResults() {
     const ctx = document.getElementById('radarChart').getContext('2d');
     if (window._radarChart) window._radarChart.destroy();
     
-    // Cập nhật cấu hình Chart cho Light Mode
     window._radarChart = new Chart(ctx, {
       type: 'radar',
       data: {
@@ -1412,7 +1416,6 @@ function showResults() {
             titleFont: { family: 'Cormorant Garamond', size: 16, weight: '600' },
             bodyFont: { family: 'Be Vietnam Pro', size: 13, weight: '500' },
             padding: 12,
-            boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
             callbacks: {
               title: (items) => sections[items[0].dataIndex].name + ' · ' + sections[items[0].dataIndex].tag,
               label: (item) => `  Điểm: ${item.raw} / 8`
@@ -1426,7 +1429,6 @@ function showResults() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Hàm gửi dữ liệu chạy NGẦM 100%
 async function exportData() {
   const scriptUrl = 'https://script.google.com/macros/s/AKfycbzwhHdFBy6syJxWAENKGefJ7GFVvxI01J3KXkT6Rz5VCkDFGOXx3IFmRcfmQobDkyBp/exec';
 
@@ -1442,7 +1444,6 @@ async function exportData() {
   const sectionResults = sections.map((sec, i) => {
     const score = scores[i];
     const levelIndex = score <= 2 ? 0 : score <= 4 ? 1 : score <= 6 ? 2 : 3;
-
     return {
       name: sec.name,
       tag: sec.tag,
@@ -1472,15 +1473,12 @@ async function exportData() {
       body: params,
       redirect: 'follow'
     });
-    
     console.log('Đã tự động gửi kết quả ngầm thành công!');
-    
   } catch(err) {
     console.error('Lỗi khi gửi dữ liệu ngầm:', err);
   }
 }
 
-// Cập nhật logic xóa trường thông tin khi khởi động lại
 function restartSurvey() {
   answers = {};
   userInfo = {};
@@ -1490,6 +1488,8 @@ function restartSurvey() {
   document.getElementById('results').style.display = '';
   ['f-code','f-name','f-evaluatee'].forEach(id => document.getElementById(id).value = '');
   document.getElementById('intro').style.display = '';
+  // ✅ FIX 1: Reset button text when restarting
+  document.getElementById('btn-next').textContent = 'Tiếp Theo →';
 }
 </script>
 </body>
